@@ -8,9 +8,9 @@ namespace Encapsulation
 {
     public class Employee
 
-        
+
     {
-       
+
         private string idNo;
 
         public string IDNO
@@ -39,10 +39,11 @@ namespace Encapsulation
                         }
 
                     }
-                    if (control) {
+                    if (control)
+                    {
                         Console.WriteLine("ID No expect only number!");
                         return;
-                      
+
                     }
 
 
