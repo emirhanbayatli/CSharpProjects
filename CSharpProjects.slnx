@@ -2,4 +2,5 @@
   <Project Path="CalculatorWindowsForm/CalculatorWindowsForm.csproj" Id="30b4b8ca-f39d-4212-9dc5-837d38c9164c" />
   <Project Path="ConsoleCalculator/ConsoleCalculator.csproj" Id="2906aee5-00d6-4e00-a508-ccf2eb6be21b" />
   <Project Path="Encapsulation/EncapsulationExample.csproj" Id="474ca11b-0bc0-40e0-be6a-a79194e6f37a" />
+  <Project Path="InheritanceExample/InheritanceExample.csproj" Id="8d174632-de35-4b66-81f5-df619832efce" />
 </Solution>
