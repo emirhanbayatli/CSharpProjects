@@ -31,11 +31,9 @@ namespace DataAccess
         public void DeleteProduct(int id)
         {
             var product = db.Products.Find(id);
-            if (product != null)
-            {
-                db.Products.Remove(product);
-                db.SaveChanges();
-            }
+            db.Products.Remove(product);
+            db.SaveChanges();
+
         }
     }
 }

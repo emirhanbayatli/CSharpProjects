@@ -6,14 +6,14 @@ namespace DataAccess
     public class CategoryRepository
     {
         AppDbContext db = new AppDbContext();
-        public List<Category> GetAllCategorys()
+        public List<Category> GetAllCategories()
         {
             var values = db.Categories.ToList();
             return values;
         }
-        public Product GetCategoryById(int id)
+        public Category GetCategoryById(int id)
         {
-            var values = db.Products.Find(id);
+            var values = db.Categories.Find(id);
             return values;
         }
         public void AddCategory(Category category)
@@ -30,11 +30,12 @@ namespace DataAccess
         public void DeleteCategory(int id)
         {
             var category = db.Categories.Find(id);
-            if (category != null)
-            {
-                db.Categories.Remove(category);
-                db.SaveChanges();
-            }
+
+            db.Categories.Remove(category);
+            db.SaveChanges();
+
         }
+
+
     }
 }

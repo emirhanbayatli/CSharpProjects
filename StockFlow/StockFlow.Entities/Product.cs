@@ -10,7 +10,7 @@
         public bool IsActive { get; set; }
         public int CategoryId { get; set; }
         public Category Category { get; set; }
-        public StockMovement StockMovement { get; set; }
+        public List<StockMovement> StockMovements { get; set; }
 
     }
 }

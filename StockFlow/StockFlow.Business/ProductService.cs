@@ -3,7 +3,6 @@ using Entities;
 
 namespace StockFlow.Business
 {
-
     public class ProductService
     {
         private readonly ProductRepository _productRepository;
@@ -18,37 +17,77 @@ namespace StockFlow.Business
             return _productRepository.GetAllProducts();
         }
 
+        public Product GetProductById(int id)
+        {
+            if (id <= 0)
+                return null;
+
+            var existing = _productRepository.GetProductById(id);
+
+            return existing;
+        }
+
         public string AddProduct(Product product)
         {
-            // 1. Null kontrol
             if (product == null)
-                return "Ürün bilgisi boş olamaz";
+                return "Product information cannot be empty";
 
-            // 2. İsim kontrol
             if (string.IsNullOrWhiteSpace(product.ProductName))
-                return "Ürün adı boş olamaz";
+                return "Product name cannot be empty";
 
-            // 3. Fiyat kontrol
             if (product.ProductPrice <= 0)
-                return "Fiyat 0'dan büyük olmalıdır";
+                return "Price must be greater than 0";
 
-            // 4. Stok kontrol
             if (product.ProductStock < 0)
-                return "Stok negatif olamaz";
+                return "Stock cannot be negative";
 
-            // 5. Aynı isimde ürün var mı?
             var existingProduct = _productRepository
                 .GetAllProducts()
                 .FirstOrDefault(x => x.ProductName == product.ProductName);
 
             if (existingProduct != null)
-                return "Bu isimde bir ürün zaten var";
+                return "A product with this name already exists";
 
-            // ✔ Her şey doğruysa ekle
             _productRepository.AddProduct(product);
 
-            return "Ürün başarıyla eklendi";
+            return "Product added successfully";
+        }
+
+        public string UpdateProduct(Product product)
+        {
+            if (product == null)
+                return "Product information cannot be empty";
+
+            if (string.IsNullOrWhiteSpace(product.ProductName))
+                return "Product name cannot be empty";
+
+            if (product.ProductPrice <= 0)
+                return "Price must be greater than 0";
+
+            if (product.ProductStock < 0)
+                return "Stock cannot be negative";
+
+            var existing = _productRepository.GetProductById(product.ProductId);
+
+            if (existing == null)
+                return "Product not found";
+
+            _productRepository.UpdateProduct(product);
+            return "Product updated successfully";
+        }
+
+        public string DeleteProduct(int id)
+        {
+            if (id <= 0)
+                return "Invalid Id";
+
+            var existing = _productRepository.GetProductById(id);
+
+            if (existing == null)
+                return "Product not found";
+
+            _productRepository.DeleteProduct(id);
+            return "Product deleted successfully";
         }
     }
 }
-
