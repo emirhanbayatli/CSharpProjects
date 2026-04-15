@@ -99,5 +99,26 @@ namespace StockFlow.UI
             txtProductPrice.Text = "";
             chkIsActive.Checked = false;
         }
+
+        private void lblDashboard_Click(object sender, EventArgs e)
+        {
+            FrmDashboard frm = new FrmDashboard();
+            frm.Show();
+            this.Hide();
+        }
+
+        private void lblCategories_Click(object sender, EventArgs e)
+        {
+            FrmCategory frm = new FrmCategory();
+            frm.Show();
+            this.Hide();
+        }
+
+        private void lblStock_Click(object sender, EventArgs e)
+        {
+            FrmStockMovement frm = new FrmStockMovement();
+            frm.Show();
+            this.Hide();
+        }
     }
 }

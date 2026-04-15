@@ -19,7 +19,6 @@ namespace DataAccess
         {
             db.Products.Add(product);
             db.SaveChanges();
-
         }
 
         public void UpdateProduct(Product product)

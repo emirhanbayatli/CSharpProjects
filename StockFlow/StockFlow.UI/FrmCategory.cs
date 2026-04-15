@@ -67,5 +67,26 @@ namespace StockFlow.UI
             chkIsActive.Checked = false;
 
         }
+
+        private void lblDashboard_Click(object sender, EventArgs e)
+        {
+            FrmDashboard frm = new FrmDashboard();
+            frm.Show();
+            this.Hide();
+        }
+
+        private void lblProducts_Click(object sender, EventArgs e)
+        {
+            FrmProducts frm = new FrmProducts();
+            frm.Show();
+            this.Hide();
+        }
+
+        private void lblStock_Click(object sender, EventArgs e)
+        {
+            FrmStockMovement frm = new FrmStockMovement();
+            frm.Show();
+            this.Hide();
+        }
     }
 }
