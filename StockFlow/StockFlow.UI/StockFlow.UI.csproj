@@ -11,5 +11,4 @@
   <ItemGroup>
     <ProjectReference Include="..\StockFlow.Business\StockFlow.Business.csproj" />
   </ItemGroup>
-
 </Project>
