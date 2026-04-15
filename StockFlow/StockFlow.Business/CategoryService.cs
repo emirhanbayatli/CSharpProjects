@@ -54,6 +54,9 @@ namespace StockFlow.Business
             if (category == null)
                 return "Category information cannot be empty";
 
+            if (category.CategoryId <= 0)
+                return "Invalid category id";
+
             if (string.IsNullOrWhiteSpace(category.CategoryName))
                 return "Category name cannot be empty";
 

@@ -1,5 +1,4 @@
 ﻿using Entities;
-using System.Data.Entity;
 
 namespace DataAccess
 {
@@ -24,7 +23,9 @@ namespace DataAccess
 
         public void UpdateCategory(Category category)
         {
-            db.Entry(category).State = EntityState.Modified;
+            var entity = db.Categories.Find(category.CategoryId);
+            entity.CategoryName = category.CategoryName;
+            entity.IsActive = category.IsActive;
             db.SaveChanges();
         }
         public void DeleteCategory(int id)
