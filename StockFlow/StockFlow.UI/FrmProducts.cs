@@ -35,6 +35,13 @@ namespace StockFlow.UI
             MessageBox.Show(result);
             var values = productService.GetAllProducts();
             dataGridViewProducts.DataSource = values;
+
+            txtProductName.Text = "";
+            txtProductDescription.Text = "";
+            txtProductStock.Text = "";
+            txtProductPrice.Text = "";
+            chkIsActive.Checked = false;
+
         }
 
         private void FrmProducts_Load(object sender, EventArgs e)
@@ -56,6 +63,8 @@ namespace StockFlow.UI
             MessageBox.Show(result);
             var values = productService.GetAllProducts();
             dataGridViewProducts.DataSource = values;
+
+            txtProductId.Text = "";
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -82,6 +91,13 @@ namespace StockFlow.UI
             MessageBox.Show(result);
             var values = productService.GetAllProducts();
             dataGridViewProducts.DataSource = values;
+
+            txtProductId.Text = "";
+            txtProductName.Text = "";
+            txtProductDescription.Text = "";
+            txtProductStock.Text = "";
+            txtProductPrice.Text = "";
+            chkIsActive.Checked = false;
         }
     }
 }
