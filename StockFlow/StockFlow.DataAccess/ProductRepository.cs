@@ -1,5 +1,4 @@
 ﻿using Entities;
-using System.Data.Entity;
 
 namespace DataAccess
 {
@@ -25,8 +24,16 @@ namespace DataAccess
 
         public void UpdateProduct(Product product)
         {
-            db.Entry(product).State = EntityState.Modified;
+            var entity = db.Products.Find(product.ProductId);
+            entity.ProductName = product.ProductName;
+            entity.ProductPrice = product.ProductPrice;
+            entity.ProductStock = product.ProductStock;
+            entity.ProductDescription = product.ProductDescription;
+            entity.IsActive = product.IsActive;
+            entity.CategoryId = product.CategoryId;
+
             db.SaveChanges();
+
         }
         public void DeleteProduct(int id)
         {

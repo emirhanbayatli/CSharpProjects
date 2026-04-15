@@ -49,7 +49,6 @@
             btnUpdate = new Button();
             btnDelete = new Button();
             btnAdd = new Button();
-            btnList = new Button();
             txtProductName = new TextBox();
             lblProductName = new Label();
             txtProductId = new TextBox();
@@ -71,7 +70,7 @@
             panelSidebar.Dock = DockStyle.Left;
             panelSidebar.Location = new Point(0, 0);
             panelSidebar.Name = "panelSidebar";
-            panelSidebar.Size = new Size(250, 729);
+            panelSidebar.Size = new Size(250, 679);
             panelSidebar.TabIndex = 3;
             // 
             // lblLogo
@@ -156,7 +155,6 @@
             panelInputs.Controls.Add(btnUpdate);
             panelInputs.Controls.Add(btnDelete);
             panelInputs.Controls.Add(btnAdd);
-            panelInputs.Controls.Add(btnList);
             panelInputs.Controls.Add(txtProductName);
             panelInputs.Controls.Add(lblProductName);
             panelInputs.Controls.Add(txtProductId);
@@ -264,12 +262,13 @@
             btnUpdate.FlatStyle = FlatStyle.Flat;
             btnUpdate.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
             btnUpdate.ForeColor = Color.White;
-            btnUpdate.Location = new Point(25, 575);
+            btnUpdate.Location = new Point(25, 525);
             btnUpdate.Name = "btnUpdate";
             btnUpdate.Size = new Size(300, 45);
             btnUpdate.TabIndex = 16;
             btnUpdate.Text = "Güncelle";
             btnUpdate.UseVisualStyleBackColor = false;
+            btnUpdate.Click += btnUpdate_Click;
             // 
             // btnDelete
             // 
@@ -279,12 +278,13 @@
             btnDelete.FlatStyle = FlatStyle.Flat;
             btnDelete.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
             btnDelete.ForeColor = Color.White;
-            btnDelete.Location = new Point(25, 520);
+            btnDelete.Location = new Point(25, 470);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(300, 45);
             btnDelete.TabIndex = 15;
             btnDelete.Text = "Sil";
             btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Click += btnDelete_Click;
             // 
             // btnAdd
             // 
@@ -294,28 +294,13 @@
             btnAdd.FlatStyle = FlatStyle.Flat;
             btnAdd.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
             btnAdd.ForeColor = Color.White;
-            btnAdd.Location = new Point(25, 465);
+            btnAdd.Location = new Point(25, 415);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(300, 45);
             btnAdd.TabIndex = 14;
             btnAdd.Text = "Ekle";
             btnAdd.UseVisualStyleBackColor = false;
             btnAdd.Click += btnAdd_Click;
-            // 
-            // btnList
-            // 
-            btnList.BackColor = Color.FromArgb(52, 152, 219);
-            btnList.Cursor = Cursors.Hand;
-            btnList.FlatAppearance.BorderSize = 0;
-            btnList.FlatStyle = FlatStyle.Flat;
-            btnList.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            btnList.ForeColor = Color.White;
-            btnList.Location = new Point(25, 410);
-            btnList.Name = "btnList";
-            btnList.Size = new Size(300, 45);
-            btnList.TabIndex = 13;
-            btnList.Text = "Listele";
-            btnList.UseVisualStyleBackColor = false;
             // 
             // txtProductName
             // 
@@ -387,7 +372,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(245, 246, 250);
-            ClientSize = new Size(1361, 729);
+            ClientSize = new Size(1328, 679);
             Controls.Add(panelSidebar);
             Controls.Add(dataGridViewProducts);
             Controls.Add(panelInputs);
@@ -395,6 +380,7 @@
             Name = "FrmProducts";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Ürün İşlemleri";
+            Load += FrmProducts_Load;
             panelSidebar.ResumeLayout(false);
             panelSidebar.PerformLayout();
             panelHeader.ResumeLayout(false);
@@ -432,7 +418,6 @@
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button btnList;
         private System.Windows.Forms.DataGridView dataGridViewProducts;
     }
 }

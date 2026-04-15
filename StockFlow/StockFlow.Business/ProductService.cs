@@ -43,7 +43,7 @@ namespace StockFlow.Business
 
             var existingProduct = _productRepository
                 .GetAllProducts()
-                .FirstOrDefault(x => x.ProductName == product.ProductName);
+                .FirstOrDefault(x => x.ProductName.ToLower() == product.ProductName.ToLower());
 
             if (existingProduct != null)
                 return "A product with this name already exists";
