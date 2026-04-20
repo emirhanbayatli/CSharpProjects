@@ -11,7 +11,22 @@ namespace StockFlow.UI
         }
         ProductService productService = new ProductService();
         CategoryService categoryService = new CategoryService();
-
+        private void LoadProducts()
+        {
+            dataGridViewProducts.DataSource = productService
+                .GetAllProducts()
+                .Select(x => new
+                {
+                    x.ProductId,
+                    x.ProductName,
+                    x.ProductDescription,
+                    x.ProductStock,
+                    x.ProductPrice,
+                    x.IsActive,
+                    CategoryName = x.Category != null ? x.Category.CategoryName : ""
+                })
+                .ToList();
+        }
         private void btnAdd_Click(object sender, EventArgs e)
 
         {
@@ -33,8 +48,8 @@ namespace StockFlow.UI
             };
             var result = productService.AddProduct(product);
             MessageBox.Show(result);
-            var values = productService.GetAllProducts();
-            dataGridViewProducts.DataSource = values;
+
+            LoadProducts();
 
             txtProductName.Text = "";
             txtProductDescription.Text = "";
@@ -51,8 +66,7 @@ namespace StockFlow.UI
             cmbCategory.DisplayMember = "CategoryName";
             cmbCategory.ValueMember = "CategoryId";
 
-            var values = productService.GetAllProducts();
-            dataGridViewProducts.DataSource = values;
+            LoadProducts();
 
         }
 
@@ -61,8 +75,7 @@ namespace StockFlow.UI
             int id = int.Parse(txtProductId.Text);
             var result = productService.DeleteProduct(id);
             MessageBox.Show(result);
-            var values = productService.GetAllProducts();
-            dataGridViewProducts.DataSource = values;
+            LoadProducts();
 
             txtProductId.Text = "";
         }
@@ -89,8 +102,7 @@ namespace StockFlow.UI
             };
             var result = productService.UpdateProduct(product);
             MessageBox.Show(result);
-            var values = productService.GetAllProducts();
-            dataGridViewProducts.DataSource = values;
+            LoadProducts();
 
             txtProductId.Text = "";
             txtProductName.Text = "";

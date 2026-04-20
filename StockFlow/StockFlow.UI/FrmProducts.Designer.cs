@@ -118,7 +118,7 @@
             panelHeader.Controls.Add(lblFormTitle);
             panelHeader.Location = new Point(270, 0);
             panelHeader.Name = "panelHeader";
-            panelHeader.Size = new Size(1046, 70);
+            panelHeader.Size = new Size(1146, 70);
             panelHeader.TabIndex = 0;
             // 
             // lblFormTitle
@@ -356,7 +356,7 @@
             dataGridViewProducts.RowHeadersWidth = 51;
             dataGridViewProducts.RowTemplate.Height = 35;
             dataGridViewProducts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewProducts.Size = new Size(676, 570);
+            dataGridViewProducts.Size = new Size(776, 570);
             dataGridViewProducts.TabIndex = 2;
             // 
             // FrmProducts
@@ -364,7 +364,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(245, 246, 250);
-            ClientSize = new Size(1328, 679);
+            ClientSize = new Size(1428, 679);
             Controls.Add(panelSidebar);
             Controls.Add(dataGridViewProducts);
             Controls.Add(panelInputs);

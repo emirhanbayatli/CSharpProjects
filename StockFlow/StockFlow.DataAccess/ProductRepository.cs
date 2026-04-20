@@ -1,5 +1,5 @@
 ﻿using Entities;
-
+using System.Data.Entity;
 namespace DataAccess
 {
     public class ProductRepository
@@ -7,8 +7,9 @@ namespace DataAccess
         AppDbContext db = new AppDbContext();
         public List<Product> GetAllProducts()
         {
-            var values = db.Products.ToList();
-            return values;
+            return db.Products
+                   .Include(x => x.Category)
+                   .ToList();
         }
         public Product GetProductById(int id)
         {

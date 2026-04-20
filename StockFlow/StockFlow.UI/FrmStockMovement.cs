@@ -12,16 +12,29 @@ namespace StockFlow.UI
         ProductService productService = new ProductService();
         StockMovementService stockMovementService = new StockMovementService();
 
+        private void LoadGrid()
+        {
+            dataGridViewStockMovements.DataSource = stockMovementService
+                .GetStockMovements()
+                .Select(x => new
+                {
+                    x.StockMovementId,
+                    ProductName = x.Product.ProductName,
+                    x.Quantity,
+                    x.Type,
+                    x.Date,
+                    x.Description
+                })
+                .ToList();
+        }
+
         private void FrmStockMovement_Load(object sender, EventArgs e)
         {
             var products = productService.GetAllProducts();
             cmbProduct.DataSource = products;
             cmbProduct.DisplayMember = "ProductName";
             cmbProduct.ValueMember = "ProductId";
-
-            var values = stockMovementService.GetStockMovements();
-
-            dataGridViewStockMovements.DataSource = values;
+            LoadGrid();
 
         }
 
@@ -65,7 +78,7 @@ namespace StockFlow.UI
             var result = stockMovementService.AddStockMovement(stockMovement);
             MessageBox.Show(result);
 
-            dataGridViewStockMovements.DataSource = stockMovementService.GetStockMovements();
+            LoadGrid();
 
             txtDescription.Text = "";
             txtQuantity.Text = "";
@@ -78,7 +91,7 @@ namespace StockFlow.UI
             var result = stockMovementService.DeleteStockMovement(id);
             MessageBox.Show(result);
 
-            dataGridViewStockMovements.DataSource = stockMovementService.GetStockMovements();
+            LoadGrid();
             txtMovementId.Text = "";
 
         }
@@ -104,7 +117,7 @@ namespace StockFlow.UI
             var result = stockMovementService.UpdateStockMovement(stockMovement);
             MessageBox.Show(result);
 
-            dataGridViewStockMovements.DataSource = stockMovementService.GetStockMovements();
+            LoadGrid();
 
 
             txtDescription.Text = "";
