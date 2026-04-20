@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="StockFlow.Business/StockFlow.Business.csproj" />
+  <Project Path="StockFlow.DataAccess/StockFlow.DataAccess.csproj" />
+  <Project Path="StockFlow.Entities/StockFlow.Entities.csproj" />
+  <Project Path="StockFlow.UI/StockFlow.UI.csproj" Id="be9a4519-cc45-4878-a557-a3f1b071e1c8" />
+</Solution>
