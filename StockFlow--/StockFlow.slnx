@@ -1,6 +1,0 @@
-<Solution>
-  <Project Path="DataAccess/StockFlow.DataAccess.csproj" Id="0b349d18-e376-4612-b71b-e2349f00aeb9" />
-  <Project Path="Entities/StockFlow.Entities.csproj" Id="9b2ff263-87d7-472d-adb5-70376fd1a63d" />
-  <Project Path="StockFlow.Business/StockFlow.Business.csproj" Id="5ad98034-1d4b-417c-b945-96cc6f354622" />
-  <Project Path="StockFlow/StockFlow.UI.csproj" Id="716fd701-303e-44c8-b237-8920e778087b" />
-</Solution>
